@@ -1,0 +1,16 @@
+###### Requirements without Version Specifiers ######
+
+scrapy
+
+pandas
+regex
+
+splash
+scrapy-splash
+scrapyjs
+
+django
+djangorestframework
+django-tastypie
+
+###### Requirements with Version Specifiers ######

@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  python:
+    build:
+      context: ./
+      dockerfile: ./docker/python/Dockerfile
+    tty: true
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "3"
+    restart: always
+    # network been hidden for time of developing
+    networks:
+      - default
+      # - app_default
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./:/var/www/app
+      
+  splash:
+    image: scrapinghub/splash
+    tty: true
+    restart: always
+    networks:
+      - default
+    ports:
+      - "8050:8050"
+# network been hidden for time of developing
+# networks:
+#   app_default:
+#     external: true
