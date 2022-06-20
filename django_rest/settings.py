@@ -29,10 +29,11 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'bookmark.red/parse',
     'bookmark.red',
-    'bookmark.red:8443',
-    
-    '0.0.0.0', 
+
+    '0.0.0.0',
     'localhost',
+    '127.0.0.1',
+    '198.211.99.20',
 ]
 
 
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 
     'rest_framework',
 ]
@@ -65,6 +67,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+    'http://bookmark.red',
+    'https://bookmark.red',
 ]
 
 ROOT_URLCONF = 'django_rest.urls'

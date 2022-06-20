@@ -25,16 +25,16 @@ desktop_agents = [
 folder = 'static/'
 
 def parse(url):
-	use_js_rendering = True 
+	use_js_rendering = True
 	page_limit = 50
-	
+
 	filename = generate_filename(folder)
 
 	generate_subprocess(filename, page_limit=page_limit, other_urls=[url], use_js_rendering=use_js_rendering)
-	
+
 	robots_url = robots_parser.get_robots_url(url)
 	generate_subprocess(filename, page_limit=page_limit, sitemap_urls=[robots_url], use_js_rendering=use_js_rendering)
-	
+
 	text = read_file(filename)
 
 	# if (len(text) < 2000):
@@ -69,7 +69,7 @@ def generate_subprocess(filename, page_limit=5, other_urls=[], sitemap_urls=[], 
 
 def execute_crawling(filename, page_limit, other_urls, sitemap_urls, use_js_rendering):
 	from random import choice
-	
+
 	process = CrawlerProcess(settings={
     	"FEEDS": {
 	    	filename: {"format": "jsonlines"},
@@ -85,7 +85,7 @@ def execute_crawling(filename, page_limit, other_urls, sitemap_urls, use_js_rend
 
 # FILESYSTEM
 def generate_filename(folder_name=""):
-	import secrets 
+	import secrets
 	hash = secrets.token_urlsafe(32)
 	filename = folder + hash + '.json'
 	return filename
@@ -101,7 +101,7 @@ def read_file(filename=""):
 def clear_folder(filename=""):
 	import glob, time, os, os.path
 	os.remove(filename)
-	
+
 	# delete old files (> 1hour)
 	now = time.time()
 	for f in os.listdir(folder):

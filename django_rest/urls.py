@@ -27,16 +27,10 @@ from tastypie.api import Api
 my_api = Api(api_name='v1')
 
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
 from . import views
 urlpatterns = [
-    # path('', include(router.urls)),
-
     path('', views.main),
-
-    path('parse/<path:url>', views.parse),
     path('parse/<path:url>/', views.parse),
-    
-    path('test/', views.test),
+
+    # path('test/', views.test),
 ]

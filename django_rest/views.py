@@ -12,11 +12,10 @@ def parse(request, url):
 def main(request):
     return HttpResponse("Hello world!")
 
-def test(request):
-    import time
-    time.sleep(15)
-
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-
-    return HttpResponse(html)
+# def test(request):
+#     import time
+#
+#     now = datetime.datetime.now()
+#     html = "<html><body>It is now %s.</body></html>" % now
+#
+#     return HttpResponse(html)

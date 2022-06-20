@@ -12,5 +12,6 @@ scrapyjs
 django
 djangorestframework
 django-tastypie
+django-cors-headers
 
 ###### Requirements with Version Specifiers ######
